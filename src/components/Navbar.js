@@ -13,6 +13,13 @@ const linkStyles = {
 function Navbar({ setIsLoggedIn }) {
   const history = useHistory();
 
+  function handleClick() {
+    // logout the user
+  
+    // then navigate them to the login page
+    history.push("/login");
+  }
+
   function handleLogout() {
     setIsLoggedIn(false);
     history.push("/login");
@@ -20,6 +27,12 @@ function Navbar({ setIsLoggedIn }) {
 
   return (
     <div>
+
+    <nav>
+      <button onClick={handleClick}>Logout</button>
+    </nav>
+
+
       <NavLink
         to="/"
         /* set exact so it knows to only set activeStyle when route is deeply equal to link */
@@ -59,3 +72,4 @@ function Navbar({ setIsLoggedIn }) {
 }
 
 export default Navbar;
+
